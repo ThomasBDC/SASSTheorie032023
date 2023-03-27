@@ -1,0 +1,149 @@
+/* Couleurs */
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+
+/* Styles généraux */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: $background-color;
+    margin: 0;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Header */
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+
+    h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: flex-end;
+
+            li {
+                margin-left: 1rem;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Produits */
+
+.product {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .buy-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: $primary-color;
+        color: white;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}
+
+/* Sections */
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+#featured-products {
+    background-color: $background-color;
+
+    .product {
+        flex-basis: calc(33.33% - 2rem);
+        margin: 1rem;
+
+        @media (max-width: 767px) {
+            flex-basis: 100%;
+        }
+    }
+}
+
+#all-products {
+    background-color: white;
+
+    .product {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+
+            .buy-button {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
