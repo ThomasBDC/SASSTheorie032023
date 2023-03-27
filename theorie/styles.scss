@@ -1,0 +1,35 @@
+$color-active : #ff5900;
+$color-secondary: green;
+
+
+ul.list-articles{
+    h2{
+        color:red;
+        &:hover{
+            color:$color-secondary;
+        }
+        @media (min-width:800px){
+            color:blue;
+        }
+
+        &.active{
+            color:$color-active;
+        }
+    }
+    img{
+        width: 100%;
+        &:hover{
+            transform: rotate(180deg);
+        }
+    }
+    p{
+        text-transform: uppercase;
+        &:hover{
+            text-transform: lowercase;
+        }
+
+        &.active{
+            border: solid 5px $color-active;
+        }
+    }
+}

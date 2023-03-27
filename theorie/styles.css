@@ -1,0 +1,29 @@
+ul.list-articles h2 {
+  color: red;
+}
+ul.list-articles h2:hover {
+  color: green;
+}
+@media (min-width: 800px) {
+  ul.list-articles h2 {
+    color: blue;
+  }
+}
+ul.list-articles h2.active {
+  color: #ff5900;
+}
+ul.list-articles img {
+  width: 100%;
+}
+ul.list-articles img:hover {
+  transform: rotate(180deg);
+}
+ul.list-articles p {
+  text-transform: uppercase;
+}
+ul.list-articles p:hover {
+  text-transform: lowercase;
+}
+ul.list-articles p.active {
+  border: solid 5px #ff5900;
+}/*# sourceMappingURL=styles.css.map */

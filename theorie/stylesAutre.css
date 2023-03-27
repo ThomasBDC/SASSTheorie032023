@@ -1,0 +1,18 @@
+ul.list-articles h2 {
+  color: blue;
+}
+ul.list-articles:hover {
+  color: green;
+}
+ul img {
+  width: 100%;
+}
+ul img:hover {
+  transform: rotate(180deg);
+}
+ul p {
+  text-transform: uppercase;
+}
+ul p:hover {
+  text-transform: lowercase;
+}/*# sourceMappingURL=stylesAutre.css.map */
