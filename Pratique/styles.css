@@ -2,20 +2,54 @@
 body {
   margin: 0;
   font-family: "Sora", sans-serif;
+  color: rgb(48, 48, 48);
 }
 
 header.site-header nav {
+  border-bottom: 1px solid gray;
+  position: fixed;
+  width: 100%;
+  height: 65px;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid gray;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   padding: 15px;
+  overflow: auto;
+}
+@media screen and (min-width:750px) {
+  header.site-header nav .toggle-navbar {
+    display: none;
+  }
 }
 header.site-header nav ul {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  height: 0px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  visibility: hidden;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+header.site-header nav ul.open {
+  height: 100%;
+  visibility: visible;
+}
+@media screen and (min-width:750px) {
+  header.site-header nav ul {
+    position: relative;
+    flex-direction: row;
+    top: 0px;
+    visibility: visible;
+    justify-content: flex-end;
+  }
 }
 header.site-header nav ul li {
   list-style: none;
@@ -23,7 +57,7 @@ header.site-header nav ul li {
 }
 header.site-header nav ul li a {
   text-decoration: none;
-  color: black;
+  color: rgb(48, 48, 48);
 }
 header.site-header nav ul li a:hover {
   color: red;
@@ -31,7 +65,8 @@ header.site-header nav ul li a:hover {
 
 main {
   padding: 15px;
-  background: radial-gradient(circle, rgb(71, 103, 145) 0%, rgba(23, 137, 255, 0) 100%);
+  padding-top: 100px;
+  background: radial-gradient(circle, rgb(198, 201, 206) 0%, rgba(23, 137, 255, 0) 100%);
 }
 
 .list-products {
@@ -44,16 +79,29 @@ main {
   padding: 15px;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: 15px;
-  transition: all 0.5s;
   background-color: white;
+  margin: 15px;
 }
-.list-products .product:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
 footer.site-footer {
   height: 50px;
   display: flex;
   justify-content: center;
+}
+
+.transition-scale, .list-products .product, .list-products .product .buy-button, h1 {
+  transition: all 0.5s ease;
+}
+.transition-scale:hover, .list-products .product:hover, .list-products .product .buy-button:hover, h1:hover {
+  transform: rotate(2deg);
+  cursor: pointer;
+}
+
+.btn, .list-products .product .buy-button {
+  display: inline-block;
+  padding: 1em 2em;
+  background-color: rgb(194, 194, 194);
+  border: 1px solid gray;
+  text-decoration: none;
+  color: rgb(48, 48, 48);
+  border-radius: 5px;
 }/*# sourceMappingURL=styles.css.map */
