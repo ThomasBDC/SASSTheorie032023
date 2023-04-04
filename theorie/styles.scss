@@ -1,28 +1,58 @@
 $color-active : #ff5900;
 $color-secondary: green;
 
+$sm: "sm";
+$sm-media-query: "screen and (min-width: 700px)";
+
+$md: "md";
+$md-media-query: "screen and (min-width: 968px)";
+// Pour enlever les bullets sur une liste et afficher comme un artilce
+.list-style-none{
+    li{
+        list-style: none;
+    }
+    display: flex;
+    justify-content: center;
+}
+
+h1.color-red-#{$sm}{
+    @media #{$sm-media-query}{
+        color:red;
+    }
+}
 
 ul.list-articles{
+    @extend .list-style-none;
     h2{
         color:red;
         &:hover{
             color:$color-secondary;
         }
-        @media (min-width:800px){
+        @media #{$sm-media-query}{
             color:blue;
         }
 
         &.active{
             color:$color-active;
+            &.importantClass{
+                color:tomato;
+            }
         }
     }
     img{
         width: 100%;
+
+        &.d-none-#{$sm}{
+            @media #{$sm-media-query}{
+                display: none;
+            }
+        }
         &:hover{
             transform: rotate(180deg);
         }
     }
     p{
+        color: red;
         text-transform: uppercase;
         &:hover{
             text-transform: lowercase;
@@ -32,4 +62,15 @@ ul.list-articles{
             border: solid 5px $color-active;
         }
     }
+}
+
+
+
+.toto{
+    font-weight: bold;
+}
+
+
+.tata{
+    font-weight: lighter;
 }

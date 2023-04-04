@@ -1,14 +1,51 @@
-ul 
-    &.list-articles
-        h2
-            color: blue
-        &:hover
-            color: green
-    img
-        width: 100%
-        &:hover
-            transform: rotate(180deg)
-    p
-        text-transform: uppercase
-        &:hover
-            text-transform: lowercase
+$color-active: #ff5900
+$color-secondary: green
+
+$sm: "sm"
+$sm-media-query: "screen and (min-width: 700px)"
+
+// Pour enlever les bullets sur une liste et afficher comme un artilce
+.list-style-none
+  li
+    list-style: none
+  display: flex
+  justify-content: center
+
+h1.color-red-#{$sm}
+  @media #{$sm-media-query}
+    color: red
+
+ul.list-articles
+  @extend .list-style-none
+  h2
+    color: red
+    &:hover
+      color: $color-secondary
+    @media #{$sm-media-query}
+      color: blue
+
+    &.active
+      color: $color-active
+      &.importantClass
+        color: tomato
+  img
+    width: 100%
+    &:hover
+      transform: rotate(180deg)
+  p
+    color: red
+    text-transform: uppercase
+    &:hover
+      text-transform: lowercase
+
+    &.active
+      border: solid 5px $color-active
+
+
+
+.toto
+  font-weight: bold
+
+
+.tata
+  font-weight: lighter
