@@ -34,20 +34,20 @@ header.site-header nav ul {
   left: 0;
   width: 100%;
   background-color: white;
-  visibility: hidden;
+  opacity: 0;
   padding: 0;
   transition: all 0.5s ease;
 }
 header.site-header nav ul.open {
   height: 100%;
-  visibility: visible;
+  opacity: 1;
 }
 @media screen and (min-width:750px) {
   header.site-header nav ul {
     position: relative;
     flex-direction: row;
     top: 0px;
-    visibility: visible;
+    opacity: 1;
     justify-content: flex-end;
   }
 }
