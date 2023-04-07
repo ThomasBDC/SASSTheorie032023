@@ -55,8 +55,10 @@ header.site-header{
                 a{
                     text-decoration: none;
                     color: $black;
+                    transition: $transition-site;
                     &:hover{
-                        color:$red;
+                        color:$accent-color;
+                        animation: lights 5s linear infinite;
                     }
                 }
                 
@@ -80,4 +82,7 @@ footer.site-footer{
 
 h1{
     @extend .transition-scale;
+    &:hover{
+        color:$accent-color;
+    }
 }
