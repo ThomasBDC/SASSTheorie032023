@@ -1,11 +1,5 @@
-$color-active : #ff5900;
-$color-secondary: green;
+@import 'base';
 
-$sm: "sm";
-$sm-media-query: "screen and (min-width: 700px)";
-
-$md: "md";
-$md-media-query: "screen and (min-width: 968px)";
 // Pour enlever les bullets sur une liste et afficher comme un artilce
 .list-style-none{
     li{
