@@ -1,0 +1,31 @@
+//anything reusable such as buttons, navbars, cards etc.
+
+.list-products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .product{
+        border: $gray-border-thin;
+        padding:$spacer;
+        box-shadow: $bottom-shadow;
+        border-radius: $spacer;
+        background-color: $white;
+        margin: $spacer;
+        @extend .transition-scale;
+        .buy-button{
+            @extend .transition-scale;
+            @extend .btn;
+        }
+    }
+}
+
+
+.btn{
+    display: inline-block;
+    padding: 1em 2em;
+    background-color: rgb(194, 194, 194);
+    border: $gray-border-thin;
+    text-decoration: none;
+    color:$black;
+    border-radius: 5px;
+}

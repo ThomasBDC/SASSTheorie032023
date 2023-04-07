@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;400&display=swap");
+.transition-scale, .list-products .product .buy-button, .list-products .product, h1 {
+  transition: all 0.5s ease;
+}
+.transition-scale:hover, .list-products .product .buy-button:hover, .list-products .product:hover, h1:hover {
+  transform: rotate(2deg);
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   font-family: "Sora", sans-serif;
@@ -6,17 +14,17 @@ body {
 }
 
 header.site-header nav {
+  padding: 15px;
   border-bottom: 1px solid gray;
+  z-index: 1000;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 30px);
   height: 65px;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  padding: 15px;
-  overflow: auto;
 }
 @media screen and (min-width:750px) {
   header.site-header nav .toggle-navbar {
@@ -69,6 +77,12 @@ main {
   background: radial-gradient(circle, rgb(198, 201, 206) 0%, rgba(23, 137, 255, 0) 100%);
 }
 
+footer.site-footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
 .list-products {
   display: flex;
   flex-wrap: wrap;
@@ -82,20 +96,6 @@ main {
   background-color: white;
   margin: 15px;
 }
-footer.site-footer {
-  height: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-.transition-scale, .list-products .product, .list-products .product .buy-button, h1 {
-  transition: all 0.5s ease;
-}
-.transition-scale:hover, .list-products .product:hover, .list-products .product .buy-button:hover, h1:hover {
-  transform: rotate(2deg);
-  cursor: pointer;
-}
-
 .btn, .list-products .product .buy-button {
   display: inline-block;
   padding: 1em 2em;
@@ -104,4 +104,4 @@ footer.site-footer {
   text-decoration: none;
   color: rgb(48, 48, 48);
   border-radius: 5px;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=main.css.map */

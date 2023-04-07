@@ -1,0 +1,30 @@
+//resets, variables, mixins, and any utility classes
+
+//-------------------resets--------------------
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;400&display=swap');
+
+
+//-------------------variables--------------------
+$gray-border-thin:1px solid gray;
+$bottom-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+$transition-site: all 0.5s ease;
+$spacer:15px;
+$black : rgb(48, 48, 48);
+$white: white;
+$red: red;
+$media-queries-navbar: "screen and (min-width:750px)";
+
+
+
+//-------------------mixins--------------------
+
+
+
+//-------------------utilities------------------
+.transition-scale{
+    transition:$transition-site;
+    &:hover{
+        transform: rotate(2deg);
+        cursor: pointer;
+    }   
+}
