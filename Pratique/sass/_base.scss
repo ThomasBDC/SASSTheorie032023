@@ -5,6 +5,7 @@
 
 
 //-------------------variables--------------------
+$border-thin:1px solid ;
 $gray-border-thin:1px solid gray;
 $bottom-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 $transition-site: all 0.5s ease;
@@ -13,14 +14,27 @@ $black : rgb(48, 48, 48);
 $white: white;
 $accent-color: rgb(67, 0, 190);
 $color-btn: rgb(194, 194, 194);
-$color-btn-hover: rgb(234, 234, 234);
+$color-btn-hover: lighten($color-btn, 10%);
 $media-queries-navbar: "screen and (min-width:750px)";
 
 
 
 //-------------------mixins--------------------
-
-
+@mixin button($bg-color: $color-btn) {
+  display: inline-block;
+  padding: 1em 2em;
+  background-color: $bg-color;
+  border: $border-thin;
+  border-color: darken($bg-color, 20%);
+  text-decoration: none;
+  color:$black;
+  border-radius: 5px;
+  transition: $transition-site;
+  &:hover{
+      background-color: lighten($bg-color, 20%);
+      color: darken($bg-color, 20%);
+  }
+}
 
 //-------------------utilities------------------
 .transition-scale{

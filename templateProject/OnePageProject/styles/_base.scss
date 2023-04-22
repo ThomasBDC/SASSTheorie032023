@@ -9,3 +9,38 @@ contained within this file are all your resets, variables, mixins, and any utili
 .red{
     color:blue;
 }
+
+//je déclare une mixin qui a pour nom button
+//elle attends trois paramètres
+//color, background-color et hover-color
+@mixin button($color, $background-color) {
+    width: 12.5rem;
+
+    color: $color;
+    background-color: $background-color;
+
+    @if $background-color == red {
+        border-radius: 20px;
+    }
+    
+    &:hover{
+        background-color: lighten($background-color, 10%);
+    }
+    font: {
+        size: 1.25rem;
+    }
+
+    text: {
+        decoration: none;
+        align: center;
+    }
+}
+
+
+.btn-primary {
+    @include button(white, blue);
+}
+
+.btn-danger {
+    @include button(white, red);
+}
