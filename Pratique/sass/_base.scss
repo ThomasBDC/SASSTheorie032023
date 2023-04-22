@@ -1,7 +1,9 @@
 //resets, variables, mixins, and any utility classes
-
+@use 'sass:color';
 //-------------------resets--------------------
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;400&display=swap');
+
+
 
 
 //-------------------variables--------------------
@@ -19,20 +21,41 @@ $media-queries-navbar: "screen and (min-width:750px)";
 
 
 
-//-------------------mixins--------------------
+//-------------------mixins and custom functions--------------------
+
+@function getColorFromBg($bg-color){
+  // Parse RGB by isolating each color
+  $red: red( $bg-color );
+  $green: green( $bg-color );
+  $blue: blue( $bg-color );
+  // Compute the perceptive luminance, keeping
+  // in mind that the human eye favors green.
+  $l: 1 - ( 0.299 * $red + 0.587 * $green + 0.114 * $blue ) / 255;
+  /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
+  @if ( $l < 0.41 ) {
+    // if the luminance is less than 0.5 return black
+    @return $black; 
+  } @else {
+    // if the luminance is more than 0.5 return white
+    @return $white; 
+  }
+}
+
 @mixin button($bg-color: $color-btn) {
   display: inline-block;
   padding: 1em 2em;
-  background-color: $bg-color;
   border: $border-thin;
   border-color: darken($bg-color, 20%);
   text-decoration: none;
-  color:$black;
+
+  background-color: $bg-color;
+  color: getColorFromBg($bg-color);
+
   border-radius: 5px;
   transition: $transition-site;
   &:hover{
-      background-color: lighten($bg-color, 20%);
-      color: darken($bg-color, 20%);
+      background-color: darken($bg-color, 20%);
+      color: getColorFromBg(darken($bg-color, 20%));
   }
 }
 

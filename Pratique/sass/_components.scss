@@ -4,6 +4,19 @@
     @include button;
 }
 
+.btn-primary{
+    @include button(rgb(119, 0, 199));
+}
+.btn-secondary{
+    @include button(rgb(117, 117, 117));
+}
+.btn-danger{
+    @include button(rgb(210, 0, 53));
+}
+.btn-warning{
+    @include button(rgb(225, 168, 11));
+}
+
 .list-products{
     display: flex;
     flex-wrap: wrap;
@@ -17,8 +30,7 @@
         margin: $spacer;
         @extend .transition-scale;
         .buy-button{
-            @include button(rgb(236, 161, 161));
+            @include button(hsl(0, 60%, 60%));
         }
     }
 }
-

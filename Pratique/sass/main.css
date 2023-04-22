@@ -114,17 +114,81 @@ h1:hover {
 .btn {
   display: inline-block;
   padding: 1em 2em;
-  background-color: rgb(194, 194, 194);
   border: 1px solid;
   border-color: #8f8f8f;
   text-decoration: none;
+  background-color: rgb(194, 194, 194);
   color: rgb(48, 48, 48);
   border-radius: 5px;
   transition: all 0.5s ease;
 }
 .btn:hover {
-  background-color: whitesmoke;
-  color: #8f8f8f;
+  background-color: #8f8f8f;
+  color: white;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1em 2em;
+  border: 1px solid;
+  border-color: #3a0061;
+  text-decoration: none;
+  background-color: rgb(119, 0, 199);
+  color: white;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+.btn-primary:hover {
+  background-color: #3a0061;
+  color: white;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 1em 2em;
+  border: 1px solid;
+  border-color: #424242;
+  text-decoration: none;
+  background-color: rgb(117, 117, 117);
+  color: white;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+.btn-secondary:hover {
+  background-color: #424242;
+  color: white;
+}
+
+.btn-danger {
+  display: inline-block;
+  padding: 1em 2em;
+  border: 1px solid;
+  border-color: #6c001b;
+  text-decoration: none;
+  background-color: rgb(210, 0, 53);
+  color: white;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+.btn-danger:hover {
+  background-color: #6c001b;
+  color: white;
+}
+
+.btn-warning {
+  display: inline-block;
+  padding: 1em 2em;
+  border: 1px solid;
+  border-color: #805f06;
+  text-decoration: none;
+  background-color: rgb(225, 168, 11);
+  color: rgb(48, 48, 48);
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+.btn-warning:hover {
+  background-color: #805f06;
+  color: white;
 }
 
 .list-products {
@@ -143,15 +207,15 @@ h1:hover {
 .list-products .product .buy-button {
   display: inline-block;
   padding: 1em 2em;
-  background-color: rgb(236, 161, 161);
   border: 1px solid;
-  border-color: #db4c4c;
+  border-color: #a32929;
   text-decoration: none;
-  color: rgb(48, 48, 48);
+  background-color: hsl(0, 60%, 60%);
+  color: white;
   border-radius: 5px;
   transition: all 0.5s ease;
 }
 .list-products .product .buy-button:hover {
-  background-color: #fdf6f6;
-  color: #db4c4c;
+  background-color: #a32929;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
