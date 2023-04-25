@@ -6,3 +6,53 @@ $sm-media-query: "screen and (min-width: 700px)";
 
 $md: "md";
 $md-media-query: "screen and (min-width: 968px)";
+
+$colors: (
+    'red': rgb(255, 0, 0),
+    'blue': rgb(89, 89, 163),
+    'green': green, 
+    'wheat': wheat,
+    'primary': rgb(88, 88, 172)
+);
+
+@each $color-name, $color in $colors{
+    .color-#{$color-name}{
+        color: $color;
+    }
+
+    .bg-#{$color-name}{
+        background-color: $color;
+    }
+
+    .border-#{$color-name}{
+        border: solid 5px $color;
+    }
+
+    .hover-color-#{$color-name}{
+        &:hover{
+            color:$color;
+        }
+    }
+} 
+
+$cotes: 'top', 'bottom', 'right', 'left';
+
+@for $i from 0 through 5{
+    .p-#{$i}{
+        padding: #{($i*10)+"px"};
+    }
+
+    .m-#{$i}{
+        margin: #{($i*10)+"px"};
+    }
+
+    @each $cote in $cotes{
+        .p-#{$cote}-#{$i}{
+            #{"padding-"+$cote}: #{($i*10)+"px"};
+        }
+
+        .m-#{$cote}-#{$i}{
+            #{"margin-"+$cote}: #{($i*10)+"px"};
+        }
+    }
+}
