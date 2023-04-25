@@ -1,5 +1,6 @@
 //resets, variables, mixins, and any utility classes
 @use 'sass:color';
+@use 'sass:math';
 //-------------------resets--------------------
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;400&display=swap');
 
@@ -19,6 +20,39 @@ $color-btn: rgb(194, 194, 194);
 $color-btn-hover: lighten($color-btn, 10%);
 $media-queries-navbar: "screen and (min-width:750px)";
 
+$spacers: (
+  0: 0px, 
+  1: 5px,
+  2: 15px,
+  3: 30px
+);
+
+$cotes: (
+  't':'top',
+  'b': 'bottom',
+  'r':'right',
+  'l':'left'
+);
+
+$colors: (
+  'primary': rgb(119,0,199),
+  'secondary': rgb(117,117,117),
+  'danger': rgb(210, 0, 53),
+  'warning': rgb(232, 129, 38),
+  'info': rgb(40, 165, 174),
+  'dark': $black,
+  'light': $white,
+);
+
+$breakpoints: (
+  'sm': 500px,
+  'md': 700px,
+  'lg': 900px,
+  'xl': 1200px,
+  'xxl': 1400px
+);
+
+$displays: none, block, inline-block, flex, grid;
 
 
 //-------------------mixins and custom functions--------------------
@@ -30,7 +64,7 @@ $media-queries-navbar: "screen and (min-width:750px)";
   $blue: blue( $bg-color );
   // Compute the perceptive luminance, keeping
   // in mind that the human eye favors green.
-  $l: 1 - ( 0.299 * $red + 0.587 * $green + 0.114 * $blue ) / 255;
+  $l: 1 - math.div(( 0.299 * $red + 0.587 * $green + 0.114 * $blue ), 255);
   /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
   @if ( $l < 0.41 ) {
     // if the luminance is less than 0.5 return black
@@ -114,4 +148,60 @@ $media-queries-navbar: "screen and (min-width:750px)";
         -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
     
+  }
+
+
+    @each $display in $displays{
+      .d-#{$display}{
+          display: $display;
+      }
+      //Gérer les display poyr le responsive
+      @each $breakpoint, $size in $breakpoints{
+      .d-#{$breakpoint+"-"+$display}{
+        @media screen and (min-width: $size) {
+          display: $display;
+        }
+      }
+    }
+  }
+
+  //Gère les margin et padding
+  @each $spacer, $sizeSpacer in $spacers{
+    .p-#{$spacer}{
+      padding: $sizeSpacer;
+    }
+
+    .m-#{$spacer}{
+      margin: $sizeSpacer;
+    }
+
+    //margin et padding pour chaque côtés
+    @each $coteName, $cote in $cotes{
+      .p-#{$coteName}-#{$spacer}{
+        #{"padding-"+$cote}: $sizeSpacer;
+      }
+    }
+
+    //Gère le responsive
+    @each $breakpoint, $size in $breakpoints{
+      .p-#{$breakpoint+"-"+$spacer}{
+        @media screen and (min-width: $size) {
+          padding: $sizeSpacer;
+        }
+      }
+
+      .m-#{$breakpoint+"-"+$spacer}{
+        margin: $sizeSpacer;
+      }
+      //margin et padding pour chaque côtés (responsive)
+      @each $coteName, $cote in $cotes{
+        .p-#{$coteName+"-"+$breakpoint+"-"+$spacer}{
+          #{"padding-"+$cote}: $sizeSpacer;
+        }
+
+        .m-#{$coteName+"-"+$breakpoint+"-"+$spacer}{
+          #{"margin-"+$cote}: $sizeSpacer;
+        }
+      }
+    }
   }

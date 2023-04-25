@@ -4,17 +4,29 @@
     @include button;
 }
 
-.btn-primary{
-    @include button(rgb(119, 0, 199));
-}
-.btn-secondary{
-    @include button(rgb(117, 117, 117));
-}
-.btn-danger{
-    @include button(rgb(210, 0, 53));
-}
-.btn-warning{
-    @include button(rgb(225, 168, 11));
+@each $colorName, $color in $colors{
+    .btn-#{$colorName}{
+        @include button($color);
+    }
+
+    .bg-#{$colorName}{
+        background-color: $color !important;
+    }
+
+    .color-#{$colorName}{
+        color: $color !important;
+    }
+
+    .hover-color-#{$colorName}{
+        &:hover{
+            color: $color !important;
+        }
+    }
+
+    .bg-text-#{$colorName}{
+        background-color: $color !important;
+        color: getColorFromBg($color) !important;
+    }
 }
 
 .list-products{
